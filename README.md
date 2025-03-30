@@ -35,6 +35,6 @@ main(patch_to_json, path_to_html, color=True)
 ```
 
 ---
-Пример вывода в папке html
+Пример вывода в папке [html](https://github.com/Srg-Blmv/pt-Rules-to-HTML/tree/main/html)
 
 
