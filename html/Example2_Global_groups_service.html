@@ -1,0 +1,91 @@
+
+<style type="text/css">
+body {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.dataframe {
+    margin: auto;
+    border-spacing: 0 5px;
+    border-collapse: separate;
+}
+
+.dataframe th,
+.dataframe td {
+    padding: 10px;
+    text-align: center;
+}
+
+.dataframe th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.dataframe td table tbody tr:nth-child(even) {
+       background-color: #f9f9f9; 
+   }
+
+.dataframe tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.dataframe td table {
+    font-size: 15px;
+    word-break: break-word;
+    border: 1px solid #ddd;
+}
+
+.dataframe td table th,
+.dataframe td table td {
+    padding: 6px;
+    vertical-align: middle;
+    max-width: 200px;
+    overflow-wrap: anywhere;
+}
+
+.dataframe td table th {
+    background-color: #f7f7f7;
+}
+
+.dataframe td table td strong {
+    display: inline-block;
+}
+
+/* Перенос текста и ограничение ширины для второго столбца */
+.dataframe td:nth-child(2),
+.dataframe th:nth-child(2) {
+    max-width: 150px;
+    word-wrap: break-word;
+    white-space: normal;
+}
+</style>
+
+    <div class="container">
+        <h3>Service Groups</h3>
+        <p>IP адрес системы управления: <strong>10.13.107.92</strong></p>
+        <p>Имя группы: <strong>Global</strong></p>
+        <p>Приоритет: <strong>pre</strong></p>
+    <table border="1" class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Name</th>
+      <th>Description</th>
+      <th>SRC | DST | Name | Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SMTP</td>
+      <td></td>
+      <td><table border="1" cellpadding="4" style="border-collapse: collapse; width: 100%;"><tbody><tr><td><strong></strong></td><td><strong>25<br></strong></td><td>SMTP Serv­er rela­y</td><td><i>TCP</i></td></tr><tr><td><strong></strong></td><td><strong>587<br></strong></td><td>SMTP Mess­age subm­ission</td><td><i>TCP</i></td></tr><tr><td><strong></strong></td><td><strong>465<br></strong></td><td>SMTP Lega­cy syst­ems</td><td><i>TCP</i></td></tr><tr><td><strong></strong></td><td><strong>2525<br></strong></td><td>SMTP Alte­rnative opti­on</td><td><i>TCP</i></td></tr></tbody></table></td>
+    </tr>
+  </tbody>
+</table></div>

@@ -1,0 +1,581 @@
+
+<style type="text/css">
+
+.container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+th {
+        text-align: center; /* Центрируем текст */
+    }
+.dataframe tbody td {
+    white-space: nowrap; /* Запрет переноса строк */
+}
+
+.dataframe {
+    margin: auto;
+    border-collapse: separate;
+}
+.dataframe thead th {
+    background-color: #f2f2f2; /* Цвет фона заголовков */
+    color: #333; /* Цвет текста заголовков */
+}
+.dataframe tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Цвет фона четных строк */
+}
+.dataframe tbody tr:hover {
+    background-color: #f1f1f1; /* Цвет фона при наведении */
+}
+.dataframe th,
+.dataframe td {
+    padding: 5px;
+    text-align: left;
+}
+
+/* Перенос текста и ограничение ширины для 4 столбца */
+.dataframe td:nth-child(4),
+.dataframe th:nth-child(4) {
+    max-width: 150px;
+    word-wrap: break-word;
+    white-space: normal;
+}
+.dataframe td:nth-child(15),
+.dataframe th:nth-child(15) {
+    max-width: 200px;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+</style>
+
+    <div class="container">
+        <h3>Security Rules</h3>
+        <p>IP адрес системы управления: <strong>10.13.107.92</strong></p>
+        <p>Имя группы: <strong>Global</strong></p>
+        <p>Приоритет: <strong>pre</strong></p>
+    </div>
+    <table border="1" class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Enabled</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Source Zone</th>
+      <th>Source IP</th>
+      <th>Destination Zone</th>
+      <th>Destination IP</th>
+      <th>Service</th>
+      <th>Application</th>
+      <th>URL Category</th>
+      <th>IPS</th>
+      <th>Antivirus</th>
+      <th>Log Mode</th>
+      <th>Schedule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>False</td>
+      <td>ek-trex-test</td>
+      <td></td>
+      <td>trex-src</td>
+      <td></td>
+      <td>trex-dst</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>All vulnerabilities (alert only)</td>
+      <td>All malware (alert only)</td>
+      <td>AT_SESSION_END</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>True</td>
+      <td>EXAMPLE_TEST</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>True</td>
+      <td>TEST_Ni</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>test</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>whatsapp<br> ssh<br> rdp</td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>NO_LOG</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>False</td>
+      <td>URL_blocklist</td>
+      <td></td>
+      <td>Trusted</td>
+      <td></td>
+      <td>Untrusted</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>block_list</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>True</td>
+      <td>allow ntp time.windows.com</td>
+      <td></td>
+      <td>Trusted<br> DMZ</td>
+      <td></td>
+      <td></td>
+      <td><span style="color: #7FB99D">Afghanistan</span><br> <span style="color: #507EA4">192.168.1.0/24</span><br> <span style="color: #DF8743">time.windows.com</span></td>
+      <td></td>
+      <td>ntp</td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>False</td>
+      <td>URL whitelist</td>
+      <td></td>
+      <td>Trusted</td>
+      <td></td>
+      <td>Untrusted</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>white_list</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>True</td>
+      <td>sc4.deny rm</td>
+      <td></td>
+      <td>Trusted</td>
+      <td></td>
+      <td>Untrusted</td>
+      <td><span style="color: #DF8743">gazeta.ru</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>True</td>
+      <td>sc5.NGFW-group allow News</td>
+      <td>scenario with domain-group allowing access to News&Media</td>
+      <td>Trusted</td>
+      <td></td>
+      <td>Untrusted</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>News & Media</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>True</td>
+      <td>sc5.NGFW-group deny FileStorage</td>
+      <td></td>
+      <td>Trusted</td>
+      <td></td>
+      <td>Untrusted</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>File Storage</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>True</td>
+      <td>sc4.permit rm&iv</td>
+      <td></td>
+      <td>Trusted</td>
+      <td></td>
+      <td>Untrusted</td>
+      <td></td>
+      <td></td>
+      <td>http<br> dns<br> tls</td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>True</td>
+      <td>sc2-3.FQDN</td>
+      <td>сценарий демонстрации фильтрации по FQDN</td>
+      <td>Trusted</td>
+      <td></td>
+      <td>Untrusted</td>
+      <td><span style="color: #DF8743">tls-v1-2.badssl.com</span><br> <span style="color: #DF8743">gazeta.ru</span><br> <span style="color: #DF8743">lenta.ru</span><br> <span style="color: #DF8743">mk.ru</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>True</td>
+      <td>ms_temp</td>
+      <td></td>
+      <td>Trusted</td>
+      <td><span style="color: #507EA4">192.168.1.17/32</span></td>
+      <td>Untrusted</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>True</td>
+      <td>sc1.URL</td>
+      <td>block Gambling, Games, News</td>
+      <td>Trusted</td>
+      <td></td>
+      <td>Untrusted</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>News & Media<br> Games<br> Gambling<br> block_list</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>True</td>
+      <td>sc6.drop ya.disk download</td>
+      <td></td>
+      <td>Trusted</td>
+      <td></td>
+      <td>Untrusted</td>
+      <td></td>
+      <td></td>
+      <td>yandex.disk.download</td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>True</td>
+      <td>ms_dcom</td>
+      <td></td>
+      <td>DMZ</td>
+      <td><span style="color: #507EA4">192.168.2.44/32</span></td>
+      <td>Trusted</td>
+      <td><span style="color: #507EA4">192.168.1.17/32</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>ms_custom_IPS_profile</td>
+      <td>[]</td>
+      <td>NO_LOG</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>True</td>
+      <td>sc8.IPS DMZ->trusted</td>
+      <td></td>
+      <td>DMZ</td>
+      <td><span style="color: #507EA4">192.168.2.44/32</span></td>
+      <td>Trusted</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>True</td>
+      <td>permit Trust-DMZ L7 proto</td>
+      <td></td>
+      <td>Trusted</td>
+      <td></td>
+      <td>DMZ</td>
+      <td><span style="color: #507EA4">192.168.2.240/32</span><br> <span style="color: #507EA4">192.168.2.44/32</span></td>
+      <td></td>
+      <td>ftp<br> smb<br> http<br> ssh<br> web-browsing</td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>True</td>
+      <td>permit kali-any</td>
+      <td></td>
+      <td></td>
+      <td><span style="color: #507EA4">192.168.2.44/32</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>All malware (alert only)</td>
+      <td>AT_SESSION_END</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>True</td>
+      <td>TwicePermit</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><span style="color: #507EA4">10.13.107.44/32</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>True</td>
+      <td>From winrm to ustations</td>
+      <td></td>
+      <td></td>
+      <td><span style="color: #507EA4">192.168.2.240/32</span></td>
+      <td></td>
+      <td><span style="color: #507EA4">192.168.1.17/32</span><br> <span style="color: #507EA4">192.168.1.18/32</span><br> <span style="color: #507EA4">192.168.1.16/32</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>NO_LOG</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>True</td>
+      <td>sc10. GEO</td>
+      <td>drop traffic to Dutch</td>
+      <td>Trusted</td>
+      <td></td>
+      <td>Untrusted</td>
+      <td><span style="color: #7FB99D">Netherlands</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>True</td>
+      <td>GEO AD</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><span style="color: #7FB99D">Netherlands</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>True</td>
+      <td>GEO IP Block Traffic</td>
+      <td></td>
+      <td>Trusted</td>
+      <td></td>
+      <td>Untrusted</td>
+      <td><span style="color: #7FB99D">Netherlands</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>False</td>
+      <td>L4 Rule</td>
+      <td>Permit Private Subnets</td>
+      <td></td>
+      <td><span style="color: #EB7852">RFC1918</span></td>
+      <td></td>
+      <td><span style="color: #EB7852">RFC1918</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_SESSION_START_AND_END</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>True</td>
+      <td>L4 Rule Ustation3 to AD</td>
+      <td></td>
+      <td>Trusted</td>
+      <td><span style="color: #507EA4">192.168.1.18/32</span></td>
+      <td>DMZ</td>
+      <td><span style="color: #507EA4">192.168.2.240/32</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>NO_LOG</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>True</td>
+      <td>Trusted-Local</td>
+      <td></td>
+      <td>Trusted</td>
+      <td></td>
+      <td>Local</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+  </tbody>
+</table>
+<div style="margin-top: 12px; font-weight: bold; text-align: center;">
+    <table border="1" cellspacing="0" cellpadding="5" style="font-size: 18px; border-collapse: collapse; width: auto; table-layout: fixed; margin: 0 auto;">
+        <tr>
+            <th>Название</th>
+            <th>Цвет</th>
+        </tr>
+        <tr>
+            <td>network Ip Address</td>
+            <td style="background-color: #507EA4; color: white;"></td>
+        </tr>
+        <tr>
+            <td>network Group</td>
+            <td style="background-color: #EB7852; color: white;"></td>
+        </tr>
+        <tr>
+            <td>network Geo Address</td>
+            <td style="background-color: #7FB99D; color: white;"></td>
+        </tr>
+        <tr>
+            <td>network Fqdn</td>
+            <td style="background-color: #DF8743; color: white;"></td>
+        </tr>
+        <tr>
+            <td>network Range</td>
+            <td style="background-color: #ED7AA1; color: white;"></td>
+        </tr>
+        <tr>
+            <td>service TCP</td>
+            <td style="background-color: #42516F; color: white;"></td>
+        </tr>
+        <tr>
+            <td>service UDP</td>
+            <td style="background-color: #FF6347; color: white;"></td>
+        </tr>
+        <tr>
+            <td>service Group</td>
+            <td style="background-color: #48BFAD; color: white;"></td>
+        </tr>
+    </table>
+</div>
+
+</div>
