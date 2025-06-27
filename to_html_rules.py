@@ -248,6 +248,8 @@ def main(folder_path_json: str, folder_path_html: str, color: bool):
 
         # AV
         record["Antivirus"] = item.get("avProfile", {}).get("name", [])
+        
+        record["action"] = item.get("action","").replace("SECURITY_RULE_ACTION_", "")
 
         record["Log Mode"] = item.get("logMode").replace("SECURITY_RULE_LOG_MODE_", "")
 
