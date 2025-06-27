@@ -111,15 +111,19 @@ def extract(objects):
                 # Обработка dstPorts
                 if len(obj['service']['dstPorts']) > 0:
                     dst_port = ""
-                    if 'singlePort' in obj['service']['dstPorts'][0]:
-                        for i in obj['service']['dstPorts']:
+                    #if 'singlePort' in obj['service']['dstPorts'][0]:
+                    for i in obj['service']['dstPorts']:
+                        if 'singlePort' in i:
                             dst_port = f"{dst_port}" + f"{i['singlePort']['port']}<br>"
-                    elif 'portRange' in obj['service']['dstPorts'][0]:
-                        for i in obj['service']['dstPorts']:
+                        elif 'portRange' in i:
                             dst_t = f"{i['portRange']}".replace('}', '').replace("'", '').replace("{", '')
-                            dst_port = f"{src_port}" + f"{dst_t}<br>"
-                    else:
-                        print('ERR: dstPorts type unknown')
+                            dst_port = f"{dst_port}" + f"{src_port}" + f"{dst_t}<br>"
+                    # elif 'portRange' in obj['service']['dstPorts'][0]:
+                    #     for i in obj['service']['dstPorts']:
+                    #         dst_t = f"{i['portRange']}".replace('}', '').replace("'", '').replace("{", '')
+                    #         dst_port = f"{src_port}" + f"{dst_t}<br>"
+                        else:
+                            print('ERR: dstPorts type unknown')
 
                 name = obj['service'].get('name', '')
                 protocol = obj['service'].get('protocol', '').replace("SERVICE_PROTOCOL_", "")
@@ -132,6 +136,9 @@ def extract(objects):
                     '</tr>'
                 )
                 rows.append(row)
+
+
+                      
 
         elif 'serviceGroup' in obj:
                 name = obj['serviceGroup'].get('name', '')
@@ -191,7 +198,7 @@ def main(folder_path_json: str, folder_path_html: str):
 
 
 # Путь к папкам
-folder_path_json = "H:/WORK/json/"
-folder_path_html = "H:/WORK/html/"
+folder_path_json = "C:/Users/Desktop/pt-Rules-to-HTML-main/json/"
+folder_path_html = "C:/Users/Desktop/pt-Rules-to-HTML-main/html/"
 
 main(folder_path_json, folder_path_html)
