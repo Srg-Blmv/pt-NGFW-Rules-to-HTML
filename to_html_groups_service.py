@@ -74,86 +74,66 @@ body {
 
 def extract(objects):
     rows = []
-    
-    for obj in objects:
 
+    for obj in objects:
         if 'service' in obj:
-            
-            if 'SERVICE_PROTOCOL_ICMP' in obj['service']['protocol']:
-                name = obj['service'].get('name', '')
+            protocol = obj['service'].get('protocol', '')
+            name = obj['service'].get('name', '')
+            # ICMP
+            if protocol == 'SERVICE_PROTOCOL_ICMP':
                 row = (
                     '<tr>'
-                    f'<td><strong> </strong></td>'
-                    f'<td><strong> </strong></td>'
+                    '<td><strong> </strong></td>'
+                    '<td><strong> </strong></td>'
                     f'<td>{name}</td>'
-                    f'<td><i>ICMP</i></td>'
+                    '<td><i>ICMP</i></td>'
                     '</tr>'
                 )
                 rows.append(row)
-
             else:
-                # Обработка srcPorts
-                if len(obj['service']['srcPorts']) > 0:
-                    src_port = ""
-                    if 'singlePort' in obj['service']['srcPorts'][0]:
-                        for i in obj['service']['srcPorts']:
-                            src_port = f"{src_port}" + f"{i['singlePort']['port']}<br>"
-                    elif 'portRange' in obj['service']['srcPorts'][0]:
-                        for i in obj['service']['srcPorts']:
-                            src_t = f"{i['portRange']}".replace('}', '').replace("'", '').replace("{", '')
-                            src_port = f"{src_port}" + f"{src_t}<br>"
-                    else:
-                        print('ERR: srcPorts type unknown')
-                    
-                else:
-                    src_port = ""
-                    
-                # Обработка dstPorts
-                if len(obj['service']['dstPorts']) > 0:
-                    dst_port = ""
-                    #if 'singlePort' in obj['service']['dstPorts'][0]:
-                    for i in obj['service']['dstPorts']:
-                        if 'singlePort' in i:
-                            dst_port = f"{dst_port}" + f"{i['singlePort']['port']}<br>"
-                        elif 'portRange' in i:
-                            dst_t = f"{i['portRange']}".replace('}', '').replace("'", '').replace("{", '')
-                            dst_port = f"{dst_port}" + f"{src_port}" + f"{dst_t}<br>"
-                    # elif 'portRange' in obj['service']['dstPorts'][0]:
-                    #     for i in obj['service']['dstPorts']:
-                    #         dst_t = f"{i['portRange']}".replace('}', '').replace("'", '').replace("{", '')
-                    #         dst_port = f"{src_port}" + f"{dst_t}<br>"
-                        else:
-                            print('ERR: dstPorts type unknown')
-
-                name = obj['service'].get('name', '')
-                protocol = obj['service'].get('protocol', '').replace("SERVICE_PROTOCOL_", "")
+                # SRC PORTS
+                src_port = ""
+                for i in obj['service'].get('srcPorts', []):
+                    if 'singlePort' in i:
+                        src_port += f"{i['singlePort']['port']}<br>"
+                    elif 'portRange' in i:
+                        pr = i['portRange']
+                        src_port += f"{pr.get('from', '')}-{pr.get('to', '')}<br>"
+                # DST PORTS
+                dst_port = ""
+                for i in obj['service'].get('dstPorts', []):
+                    if 'singlePort' in i:
+                        dst_port += f"{i['singlePort']['port']}<br>"
+                    elif 'portRange' in i:
+                        pr = i['portRange']
+                        dst_port += f"{pr.get('from', '')}-{pr.get('to', '')}<br>"
+                protocol_str = protocol.replace("SERVICE_PROTOCOL_", "")
                 row = (
                     '<tr>'
                     f'<td><strong>{src_port}</strong></td>'
                     f'<td><strong>{dst_port}</strong></td>'
                     f'<td>{name}</td>'
-                    f'<td><i>{protocol}</i></td>'
+                    f'<td><i>{protocol_str}</i></td>'
                     '</tr>'
                 )
                 rows.append(row)
 
-
-                      
-
         elif 'serviceGroup' in obj:
-                name = obj['serviceGroup'].get('name', '')
-                row = (
-                    '<tr>'
-                    f'<td><strong></strong></td>'
-                    f'<td><strong></strong></td>'
-                    f'<td>{name}</td>'
-                    f'<td><i>Group</i></td>'
-                    '</tr>' )
-                rows.append(row)
+            group_name = obj['serviceGroup'].get('name', '')
+            group_items = obj['serviceGroup'].get('items', [])
+            # Вложенная таблица для группы
+            nested_table = extract(group_items)
+            row = (
+                '<tr>'
+                f'<td colspan="4">'
+                f'<div style="margin:8px 0;"><b>Группа: {group_name}</b></div>{nested_table}'
+                '</td>'
+                '</tr>'
+            )
+            rows.append(row)
         else:
             print('ERR: item unknown')
 
-    
     table_content = ''.join(rows)
     return f'''<table border="1" cellpadding="4" style="border-collapse: collapse; width: 100%;"><tbody>{table_content}</tbody></table>'''
 
@@ -198,7 +178,8 @@ def main(folder_path_json: str, folder_path_html: str):
 
 
 # Путь к папкам
-folder_path_json = "C:/Users/Desktop/pt-Rules-to-HTML-main/json/"
-folder_path_html = "C:/Users/Desktop/pt-Rules-to-HTML-main/html/"
+# Путь к папкам
+folder_path_json = "H:/WORK/json/"
+folder_path_html = "H:/WORK/html/"
 
 main(folder_path_json, folder_path_html)
