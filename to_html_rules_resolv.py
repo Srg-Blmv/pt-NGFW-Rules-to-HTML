@@ -7,8 +7,6 @@ color_net_gr = "#F4A261"
 color_geo = "#A3C9A8"
 color_fqdn = "#E8A969"
 color_net_range = "#F4A8C2"
-color_tcp = "#5C6A8A"
-color_udp = "#FF8C66"
 color_service_gr = "#6ACCB9"
 
 css_style = """
@@ -87,6 +85,7 @@ table.nested td {
     border: 2px solid #d1d5db;
     padding: 8px;
     font-size: 15px;
+    text-align: center; 
 }
 .header-info {
     background: #f1f5f9;
@@ -191,8 +190,7 @@ def format_service_group(group_id, group_name, groups_data, visited=None):
                     pr = i['portRange']
                     dst_port += f"{pr.get('from', '')}-{pr.get('to', '')}<br>"
             protocol_str = protocol.replace("SERVICE_PROTOCOL_", "")
-            color = color_tcp if protocol == "SERVICE_PROTOCOL_TCP" else color_udp if protocol == "SERVICE_PROTOCOL_UDP" else "#333"
-            html += f'<tr><td>{src_port}</td><td>{dst_port}</td><td><span style="color:{color}">{name}</span></td><td>{protocol_str}</td></tr>'
+            html += f'<tr><td>{src_port}</td><td>{dst_port}</td><td><span style="color:#888;">{name}</span></td><td><span style="color:#888;">{protocol_str}</span></td></tr>'
         elif "serviceGroup" in item:
             nested_id = item["serviceGroup"].get("id")
             nested_name = item["serviceGroup"].get("name")
@@ -256,10 +254,9 @@ def extract_name_or_port(objects, data_group_service):
                     pr = i['portRange']
                     dst_port += f"{pr.get('from', '')}-{pr.get('to', '')}<br>"
             protocol_str = protocol.replace("SERVICE_PROTOCOL_", "")
-            color = color_tcp if protocol == "SERVICE_PROTOCOL_TCP" else color_udp if protocol == "SERVICE_PROTOCOL_UDP" else "#333"
             row = (
                 f'<table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr>'
-                f'<tr><td>{src_port}</td><td>{dst_port}</td><td><span style="color:{color}">{name}</span></td><td>{protocol_str}</td></tr></table>'
+                f'<tr><td>{src_port}</td><td>{dst_port}</td><td><span style="color:#888;">{name}</span></td><td><span style="color:#888;">{protocol_str}</span></td></tr></table>'
             )
             ports.append(row)
         elif "serviceGroup" in obj:
@@ -346,7 +343,7 @@ def main(folder_path_json: str, folder_path_html: str):
         f.write(html)
 
 
-folder_path_json = "H:/WORK/json/"
-folder_path_html = "H:/WORK/html/"
+folder_path_json = "H:/WORK/PT/scripts/pt-Rule-to-HTML/json/"
+folder_path_html = "H:/WORK/PT/scripts/pt-Rule-to-HTML/html/"
 
-main(folder_path_json, folder_path_html)
+main(folder_path_json, folder_path_html) 

@@ -272,8 +272,8 @@ def main(folder_path_json: str, folder_path_html: str, color: bool):
 
 
 # Путь к папкам
-folder_path_json = "H:/WORK/json/"
-folder_path_html = "H:/WORK/html/"
+folder_path_json = "H:/WORK/PT/scripts/pt-Rule-to-HTML/json/"
+folder_path_html = "H:/WORK/PT/scripts/pt-Rule-to-HTML/html/"
 
 #  Соlor = True выделить разным цветами типы объектов и группы 
 main(folder_path_json, folder_path_html, color=True)

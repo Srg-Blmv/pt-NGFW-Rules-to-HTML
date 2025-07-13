@@ -179,7 +179,7 @@ def main(folder_path_json: str, folder_path_html: str):
 
 # Путь к папкам
 # Путь к папкам
-folder_path_json = "H:/WORK/json/"
-folder_path_html = "H:/WORK/html/"
+folder_path_json = "H:/WORK/PT/scripts/pt-Rule-to-HTML/json/"
+folder_path_html = "H:/WORK/PT/scripts/pt-Rule-to-HTML/html/"
 
 main(folder_path_json, folder_path_html)
