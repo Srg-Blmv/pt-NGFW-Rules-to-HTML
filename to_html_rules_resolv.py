@@ -321,6 +321,9 @@ def main(folder_path_json: str, folder_path_html: str):
         records.append(record)
 
     df = pd.DataFrame(records)
+    # Изменяем индекс: начинаем с 1 вместо 0
+    df.index = df.index + 1
+    
     html = f'''
     <!DOCTYPE html>
     <html lang="en">
