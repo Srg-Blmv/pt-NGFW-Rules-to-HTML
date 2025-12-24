@@ -96,6 +96,34 @@ table.nested td {
 </style>
 """
 
+
+
+
+iana_protocols = {
+    0: "HOPOPT",
+    1: "ICMP",
+    2: "IGMP",
+    6: "TCP",
+    17: "UDP",
+    41: "IPv6",
+    47: "GRE",
+    50: "ESP",
+    51: "AH",
+    58: "IPv6-ICMP",
+    89: "OSPFIGP",
+    103: "PIM",
+    112: "VRRP",
+    115: "L2TP",
+    124: "ISIS",
+    132: "SCTP",
+    136: "UDPLite",
+    137: "MPLS-in-IP",
+    139: "HIP",
+    255: "Reserved",
+}
+
+
+
 def get_all_group_items(groups_data, group_id, visited=None):
     if visited is None:
         visited = set()
@@ -189,7 +217,7 @@ def format_service_group(group_id, group_name, groups_data, visited=None):
                 elif 'portRange' in i:
                     pr = i['portRange']
                     dst_port += f"{pr.get('from', '')}-{pr.get('to', '')}<br>"
-            protocol_str = protocol.replace("SERVICE_PROTOCOL_", "")
+            protocol_str = iana_protocols[protocol]
             html += f'<tr><td>{src_port}</td><td>{dst_port}</td><td><span style="color:#888;">{name}</span></td><td><span style="color:#888;">{protocol_str}</span></td></tr>'
         elif "serviceGroup" in item:
             nested_id = item["serviceGroup"].get("id")
@@ -253,7 +281,7 @@ def extract_name_or_port(objects, data_group_service):
                 elif 'portRange' in i:
                     pr = i['portRange']
                     dst_port += f"{pr.get('from', '')}-{pr.get('to', '')}<br>"
-            protocol_str = protocol.replace("SERVICE_PROTOCOL_", "")
+            protocol_str = iana_protocols[protocol]
             row = (
                 f'<table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr>'
                 f'<tr><td>{src_port}</td><td>{dst_port}</td><td><span style="color:#888;">{name}</span></td><td><span style="color:#888;">{protocol_str}</span></td></tr></table>'
@@ -346,7 +374,7 @@ def main(folder_path_json: str, folder_path_html: str):
         f.write(html)
 
 
-folder_path_json = "H:/WORK/PT/scripts/pt-Rule-to-HTML/json/"
-folder_path_html = "H:/WORK/PT/scripts/pt-Rule-to-HTML/html/"
+folder_path_json = "/home/sb/Documents/WORK/NGFW-scripts/pt-NGFW-Rules-to-HTML/json/"
+folder_path_html = "/home/sb/Documents/WORK/NGFW-scripts/pt-NGFW-Rules-to-HTML/html/"
 
 main(folder_path_json, folder_path_html) 

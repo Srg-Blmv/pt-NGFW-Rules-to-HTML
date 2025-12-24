@@ -1,0 +1,313 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Firewall Rules - Global</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+        
+<style type="text/css">
+body {
+    background: #f8f9fa;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    color: #333;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 20px;
+}
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+h3 {
+    color: #42516F;
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #42516F;
+    padding-bottom: 8px;
+}
+p {
+    margin: 8px 0;
+}
+.dataframe {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: #fff;
+}
+.dataframe th, .dataframe td {
+    border: 2px solid #d1d5db;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+.dataframe th {
+    background: #42516F;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.dataframe tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+.dataframe tr:hover {
+    background-color: #f0f4f8;
+}
+.dataframe td {
+    font-size: 16px;
+}
+table.nested {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 5px 0;
+}
+table.nested th {
+    background: #9ca3af;
+    color: white;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 6px;
+    text-align: center;
+    z-index: 10;
+}
+table.nested td {
+    border: 2px solid #d1d5db;
+    padding: 8px;
+    font-size: 15px;
+    text-align: center; 
+}
+.header-info {
+    background: #f1f5f9;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+</style>
+
+    </head>
+    <body>
+        
+    <div class="container">
+        <h3>Firewall Security Rules</h3>
+        <div class="header-info">
+            <p><strong>Management IP:</strong> 192.168.1.100</p>
+            <p><strong>Group Name:</strong> Global</p>
+            <p><strong>Precedence:</strong> pre</p>
+        </div>
+    </div>
+    
+        <table border="1" class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Enabled</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Source Zone</th>
+      <th>Source IP</th>
+      <th>Destination Zone</th>
+      <th>Destination IP</th>
+      <th>Service</th>
+      <th>Application</th>
+      <th>URL Category</th>
+      <th>IPS</th>
+      <th>Antivirus</th>
+      <th>Action</th>
+      <th>Log Mode</th>
+      <th>Schedule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Off❌</td>
+      <td>Random_Rule_0</td>
+      <td></td>
+      <td></td>
+      <td><span>1.183.230.219/32</span> <span style="color:#888;">Source_1_183_230_219</span></td>
+      <td></td>
+      <td><span>5.250.247.163/32</span> <span style="color:#888;">Dest_5_250_247_163</span></td>
+      <td><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td></td><td><span style="color:#888;">VRRP (112)</span></td><td><span style="color:#888;">VRRP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td></td><td><span style="color:#888;">L2TP (115)</span></td><td><span style="color:#888;">L2TP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td></td><td><span style="color:#888;">OSPF (89)</span></td><td><span style="color:#888;">OSPFIGP</span></td></tr></table></td>
+      <td>corpus-publisher</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>DROP</td>
+      <td>NO_LOG</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>On ✅</td>
+      <td>Random_Rule_1</td>
+      <td></td>
+      <td>Trusted</td>
+      <td><span>4.146.126.152/32</span> <span style="color:#888;">Source_ip_4_146_126_152</span><br><span">5.62.107.68 - 5.67.99.199</span> <span style="color:#888;">Source_range_5_62_107_68</span><br><span>2.200.40.31/32</span> <span style="color:#888;">Source_ip_2_200_40_31</span><br><span>3.84.162.112/28</span> <span style="color:#888;">Source_net_3_84_162_123</span><br><span">tfberh7a1ky9kon.net</span></td>
+      <td>DMZ</td>
+      <td><span">96w761si7jgm.org</span><br><span>9.233.226.211/32</span> <span style="color:#888;">Dest_ip_9_233_226_211</span><br><span>5.33.77.96/27</span> <span style="color:#888;">Dest_net_5_33_77_101</span><br><span>3.107.176.223/32</span> <span style="color:#888;">Dest_ip_3_107_176_223</span><br><span">1.44.215.200 - 7.110.91.201</span> <span style="color:#888;">Dest_range_1_44_215_200</span></td>
+      <td><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>54007<br></td><td><span style="color:#888;">r_54007</span></td><td><span style="color:#888;">TCP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>7951<br></td><td><span style="color:#888;">r_7951</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>45308<br></td><td><span style="color:#888;">r_45308</span></td><td><span style="color:#888;">TCP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>3031<br></td><td><span style="color:#888;">r_3031</span></td><td><span style="color:#888;">TCP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>12142<br></td><td><span style="color:#888;">r_12142</span></td><td><span style="color:#888;">TCP</span></td></tr></table></td>
+      <td>naver-ndrive</td>
+      <td>Unknown</td>
+      <td>PT-Protect</td>
+      <td></td>
+      <td>RESET_BOTH</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>On ✅</td>
+      <td>Random_Rule_2</td>
+      <td></td>
+      <td>Trusted</td>
+      <td><span">7.108.136.94 - 9.76.218.168</span> <span style="color:#888;">Source_range_7_108_136_94</span><br><span>9.53.134.138/32</span> <span style="color:#888;">Source_ip_9_53_134_138</span><br><span">qsl4onn78e2.net</span><br><span>9.106.241.160/27</span> <span style="color:#888;">Source_net_9_106_241_181</span><br><span>5.60.229.244/32</span> <span style="color:#888;">Source_ip_5_60_229_244</span></td>
+      <td>DMZ</td>
+      <td><span">dh56k.com</span><br><span>5.33.77.96/27</span> <span style="color:#888;">Dest_net_5_33_77_101</span><br><span">4.170.218.96 - 8.189.211.166</span> <span style="color:#888;">Dest_range_4_170_218_96</span><br><span>4.206.218.188/32</span> <span style="color:#888;">Dest_ip_4_206_218_188</span><br><span>2.1.147.159/32</span> <span style="color:#888;">Dest_ip_2_1_147_159</span></td>
+      <td><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>54007<br></td><td><span style="color:#888;">r_54007</span></td><td><span style="color:#888;">TCP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>53866<br></td><td><span style="color:#888;">r_53866</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>7951<br></td><td><span style="color:#888;">r_7951</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>21359<br></td><td><span style="color:#888;">r_21359</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>61607<br></td><td><span style="color:#888;">r_61607</span></td><td><span style="color:#888;">TCP</span></td></tr></table></td>
+      <td>figma</td>
+      <td>Alternative Beliefs</td>
+      <td></td>
+      <td>PT-Detect</td>
+      <td>RESET_SERVER</td>
+      <td>AT_SESSION_START</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>On ✅</td>
+      <td>Random_Rule_3</td>
+      <td></td>
+      <td>Untrusted</td>
+      <td><span>2.160.219.192/26</span> <span style="color:#888;">Source_net_2_160_219_208</span><br><span">5npysht.org</span><br><span">5.62.107.68 - 5.67.99.199</span> <span style="color:#888;">Source_range_5_62_107_68</span><br><span>1.228.81.159/32</span> <span style="color:#888;">Source_ip_1_228_81_159</span><br><span>5.60.229.244/32</span> <span style="color:#888;">Source_ip_5_60_229_244</span></td>
+      <td>Trusted</td>
+      <td><span>1.58.12.224/27</span> <span style="color:#888;">Dest_net_1_58_12_230</span><br><span>7.41.185.89/32</span> <span style="color:#888;">Dest_ip_7_41_185_89</span><br><span>3.107.176.223/32</span> <span style="color:#888;">Dest_ip_3_107_176_223</span><br><span">4.170.218.96 - 8.189.211.166</span> <span style="color:#888;">Dest_range_4_170_218_96</span><br><span">2tdsx3hta.net</span></td>
+      <td><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>54007<br></td><td><span style="color:#888;">r_54007</span></td><td><span style="color:#888;">TCP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>37884<br></td><td><span style="color:#888;">r_37884</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>53866<br></td><td><span style="color:#888;">r_53866</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>7951<br></td><td><span style="color:#888;">r_7951</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>21359<br></td><td><span style="color:#888;">r_21359</span></td><td><span style="color:#888;">UDP</span></td></tr></table></td>
+      <td>buy-sell-ads</td>
+      <td>Child Sexual Abuse</td>
+      <td>PT-Protect</td>
+      <td>PT-Protect</td>
+      <td>DENY</td>
+      <td>AT_SESSION_START_AND_END</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>On ✅</td>
+      <td>Random_Rule_4</td>
+      <td></td>
+      <td>Untrusted</td>
+      <td><span>9.53.134.138/32</span> <span style="color:#888;">Source_ip_9_53_134_138</span><br><span>1.228.81.159/32</span> <span style="color:#888;">Source_ip_1_228_81_159</span><br><span">2tdsx3hta.net</span><br><span">4.245.200.143 - 7.128.186.175</span> <span style="color:#888;">Source_range_4_245_200_143</span><br><span>6.167.124.0/25</span> <span style="color:#888;">Source_net_6_167_124_125</span></td>
+      <td>Trusted</td>
+      <td><span>8.160.188.157/32</span> <span style="color:#888;">Dest_ip_8_160_188_157</span><br><span>3.221.235.0/26</span> <span style="color:#888;">Dest_net_3_221_235_51</span><br><span">dh56k.com</span><br><span">1.215.242.226 - 9.106.11.202</span> <span style="color:#888;">Dest_range_1_215_242_226</span><br><span>1.215.12.97/32</span> <span style="color:#888;">Dest_ip_1_215_12_97</span></td>
+      <td><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>54007<br></td><td><span style="color:#888;">r_54007</span></td><td><span style="color:#888;">TCP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>37884<br></td><td><span style="color:#888;">r_37884</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>7951<br></td><td><span style="color:#888;">r_7951</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>21359<br></td><td><span style="color:#888;">r_21359</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>12142<br></td><td><span style="color:#888;">r_12142</span></td><td><span style="color:#888;">TCP</span></td></tr></table></td>
+      <td>mobile-forms</td>
+      <td>Lingerie and Swimsuit</td>
+      <td></td>
+      <td></td>
+      <td>RESET_BOTH</td>
+      <td>AT_SESSION_START</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>On ✅</td>
+      <td>Random_Rule_5</td>
+      <td></td>
+      <td>DMZ</td>
+      <td><span">96w761si7jgm.org</span><br><span">3.94.96.52 - 5.99.89.249</span> <span style="color:#888;">Source_range_3_94_96_52</span><br><span>5.60.229.244/32</span> <span style="color:#888;">Source_ip_5_60_229_244</span><br><span>7.141.69.56/32</span> <span style="color:#888;">Source_ip_7_141_69_56</span><br><span>6.167.124.0/25</span> <span style="color:#888;">Source_net_6_167_124_125</span></td>
+      <td>Trusted</td>
+      <td><span">3.117.234.50 - 8.23.44.197</span> <span style="color:#888;">Dest_range_3_117_234_50</span><br><span">3rsa92.org</span><br><span>4.21.170.192/26</span> <span style="color:#888;">Dest_net_4_21_170_224</span><br><span>1.215.12.97/32</span> <span style="color:#888;">Dest_ip_1_215_12_97</span><br><span>1.165.162.245/32</span> <span style="color:#888;">Dest_ip_1_165_162_245</span></td>
+      <td><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>54007<br></td><td><span style="color:#888;">r_54007</span></td><td><span style="color:#888;">TCP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>53866<br></td><td><span style="color:#888;">r_53866</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>7123<br></td><td><span style="color:#888;">r_7123</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>3031<br></td><td><span style="color:#888;">r_3031</span></td><td><span style="color:#888;">TCP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>12142<br></td><td><span style="color:#888;">r_12142</span></td><td><span style="color:#888;">TCP</span></td></tr></table></td>
+      <td>pipelinedeals</td>
+      <td>Religion</td>
+      <td></td>
+      <td></td>
+      <td>DENY</td>
+      <td>AT_SESSION_START_AND_END</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>On ✅</td>
+      <td>Random_Rule_6</td>
+      <td></td>
+      <td>DMZ</td>
+      <td><span">4.201.220.42 - 5.169.171.247</span> <span style="color:#888;">Source_range_4_201_220_42</span><br><span>7.82.49.224/32</span> <span style="color:#888;">Source_ip_7_82_49_224</span><br><span>9.53.134.138/32</span> <span style="color:#888;">Source_ip_9_53_134_138</span><br><span">tfberh7a1ky9kon.net</span><br><span>3.126.4.176/30</span> <span style="color:#888;">Source_net_3_126_4_179</span></td>
+      <td>DMZ</td>
+      <td><span">dh56k.com</span><br><span>2.48.141.48/32</span> <span style="color:#888;">Dest_ip_2_48_141_48</span><br><span>4.206.218.188/32</span> <span style="color:#888;">Dest_ip_4_206_218_188</span><br><span>8.27.72.16/29</span> <span style="color:#888;">Dest_net_8_27_72_22</span><br><span">4.156.80.58 - 8.191.50.10</span> <span style="color:#888;">Dest_range_4_156_80_58</span></td>
+      <td><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>54007<br></td><td><span style="color:#888;">r_54007</span></td><td><span style="color:#888;">TCP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>53866<br></td><td><span style="color:#888;">r_53866</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>45308<br></td><td><span style="color:#888;">r_45308</span></td><td><span style="color:#888;">TCP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>7123<br></td><td><span style="color:#888;">r_7123</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>61607<br></td><td><span style="color:#888;">r_61607</span></td><td><span style="color:#888;">TCP</span></td></tr></table></td>
+      <td>workforce-guardian</td>
+      <td>Torrents and Peer-to-peer</td>
+      <td></td>
+      <td></td>
+      <td>RESET_BOTH</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>On ✅</td>
+      <td>Random_Rule_7</td>
+      <td></td>
+      <td>Trusted</td>
+      <td><span>2.122.91.0/24</span> <span style="color:#888;">Source_net_2_122_91_11</span><br><span">fy39dl54w.com</span><br><span>5.60.229.244/32</span> <span style="color:#888;">Source_ip_5_60_229_244</span><br><span>8.235.220.32/32</span> <span style="color:#888;">Source_ip_8_235_220_32</span><br><span">4.245.200.143 - 7.128.186.175</span> <span style="color:#888;">Source_range_4_245_200_143</span></td>
+      <td>Untrusted</td>
+      <td><span>3.221.235.0/26</span> <span style="color:#888;">Dest_net_3_221_235_51</span><br><span">9khsdlfplutwj.com</span><br><span">1.44.215.200 - 7.110.91.201</span> <span style="color:#888;">Dest_range_1_44_215_200</span><br><span>2.1.147.159/32</span> <span style="color:#888;">Dest_ip_2_1_147_159</span><br><span>1.165.162.245/32</span> <span style="color:#888;">Dest_ip_1_165_162_245</span></td>
+      <td><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>54007<br></td><td><span style="color:#888;">r_54007</span></td><td><span style="color:#888;">TCP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>37884<br></td><td><span style="color:#888;">r_37884</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>7951<br></td><td><span style="color:#888;">r_7951</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>45308<br></td><td><span style="color:#888;">r_45308</span></td><td><span style="color:#888;">TCP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>12142<br></td><td><span style="color:#888;">r_12142</span></td><td><span style="color:#888;">TCP</span></td></tr></table></td>
+      <td>wp-easy-cart</td>
+      <td>Science and Technology</td>
+      <td></td>
+      <td></td>
+      <td>DROP</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>On ✅</td>
+      <td>Random_Rule_8</td>
+      <td></td>
+      <td>Untrusted</td>
+      <td><span">4.201.220.42 - 5.169.171.247</span> <span style="color:#888;">Source_range_4_201_220_42</span><br><span>2.242.57.0/26</span> <span style="color:#888;">Source_net_2_242_57_53</span><br><span">5npysht.org</span><br><span>1.228.81.159/32</span> <span style="color:#888;">Source_ip_1_228_81_159</span><br><span>2.200.40.31/32</span> <span style="color:#888;">Source_ip_2_200_40_31</span></td>
+      <td>DMZ</td>
+      <td><span>8.160.188.157/32</span> <span style="color:#888;">Dest_ip_8_160_188_157</span><br><span">7a5e77z770wa.com</span><br><span">4.170.218.96 - 8.189.211.166</span> <span style="color:#888;">Dest_range_4_170_218_96</span><br><span>1.215.12.97/32</span> <span style="color:#888;">Dest_ip_1_215_12_97</span><br><span>8.27.72.16/29</span> <span style="color:#888;">Dest_net_8_27_72_22</span></td>
+      <td><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>54007<br></td><td><span style="color:#888;">r_54007</span></td><td><span style="color:#888;">TCP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>37884<br></td><td><span style="color:#888;">r_37884</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>53866<br></td><td><span style="color:#888;">r_53866</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>7951<br></td><td><span style="color:#888;">r_7951</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>7123<br></td><td><span style="color:#888;">r_7123</span></td><td><span style="color:#888;">UDP</span></td></tr></table></td>
+      <td>action-method</td>
+      <td>Message Boards and Forums</td>
+      <td></td>
+      <td></td>
+      <td>ALLOW</td>
+      <td>AT_RULE_HIT</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>On ✅</td>
+      <td>Random_Rule_9</td>
+      <td></td>
+      <td>DMZ</td>
+      <td><span>2.122.91.0/24</span> <span style="color:#888;">Source_net_2_122_91_11</span><br><span">4.201.220.42 - 5.169.171.247</span> <span style="color:#888;">Source_range_4_201_220_42</span><br><span>7.82.49.224/32</span> <span style="color:#888;">Source_ip_7_82_49_224</span><br><span>8.235.220.32/32</span> <span style="color:#888;">Source_ip_8_235_220_32</span><br><span">2tdsx3hta.net</span></td>
+      <td>DMZ</td>
+      <td><span">3.211.16.183 - 7.105.220.122</span> <span style="color:#888;">Dest_range_3_211_16_183</span><br><span>7.41.185.89/32</span> <span style="color:#888;">Dest_ip_7_41_185_89</span><br><span>5.33.77.96/27</span> <span style="color:#888;">Dest_net_5_33_77_101</span><br><span">5npysht.org</span><br><span>8.188.216.23/32</span> <span style="color:#888;">Dest_ip_8_188_216_23</span></td>
+      <td><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>54007<br></td><td><span style="color:#888;">r_54007</span></td><td><span style="color:#888;">TCP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>53866<br></td><td><span style="color:#888;">r_53866</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>7951<br></td><td><span style="color:#888;">r_7951</span></td><td><span style="color:#888;">UDP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>45308<br></td><td><span style="color:#888;">r_45308</span></td><td><span style="color:#888;">TCP</span></td></tr></table><br><table class="nested"><tr><th>Src Port</th><th>Dst Port</th><th>Имя</th><th>Протокол</th></tr><tr><td></td><td>7123<br></td><td><span style="color:#888;">r_7123</span></td><td><span style="color:#888;">UDP</span></td></tr></table></td>
+      <td>symbaloo</td>
+      <td>Command and Control</td>
+      <td></td>
+      <td></td>
+      <td>ALLOW</td>
+      <td>NO_LOG</td>
+      <td>{}</td>
+    </tr>
+  </tbody>
+</table>
+    </body>
+    </html>
+    

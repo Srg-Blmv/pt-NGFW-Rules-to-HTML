@@ -201,7 +201,8 @@ precedence = "pre"              # Pre or Post
 
 
 ####   Это  путь до папки  в конце нужен слеш  /
-path_save_json = "H:/WORK/json/" 
+#path_save_json = "/home/pt-NGFW-Rules-to-HTML/json/" 
+path_save_json = "/home/sb/Documents/WORK/NGFW-scripts/pt-NGFW-Rules-to-HTML/json/" 
 
 auth()
 save_env()
